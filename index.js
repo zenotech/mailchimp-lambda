@@ -9,6 +9,7 @@ var API_URL  = '.api.mailchimp.com/3.0/lists/',
     API_KEY  = process.env.API_KEY,
     LIST_ID  = process.env.LIST_ID,
     USERNAME = process.env.USERNAME,
+    INTERESTS = process.env.INTERESTS,
     STATUS   = process.env.STATUS;
 
 function urlForList() {
@@ -23,7 +24,7 @@ function updateSubscription(emailAddress) {
   return new Promise(function(resolve, reject) {
     request.patch(urlForUser(emailAddress))
       .auth(USERNAME, API_KEY)
-      .send({ status: STATUS })
+      .send({ status: STATUS, interests: INTERESTS })
       .end(function(err, res) {
         if (err) {
           console.log('ERROR', err);
@@ -39,7 +40,7 @@ function createSubscription(emailAddress) {
   return new Promise(function(resolve, reject) {
     request.post(urlForList())
       .auth(USERNAME, API_KEY)
-      .send({ email_address: emailAddress, status: STATUS })
+      .send({ email_address: emailAddress, interests: INTERESTS, status: STATUS })
       .end(function(err, res) {
         if (err) {
           console.log('ERROR', err);
