@@ -9,7 +9,7 @@ var API_URL  = '.api.mailchimp.com/3.0/lists/',
     API_KEY  = process.env.API_KEY,
     LIST_ID  = process.env.LIST_ID,
     USERNAME = process.env.USERNAME,
-    INTERESTS = process.env.INTERESTS,
+    INTERESTS = INTERESTS = {"99510ae354": true },
     STATUS   = process.env.STATUS;
 
 function urlForList() {
