@@ -19,7 +19,7 @@ function urlForList() {
 }
 
 function urlForUser(emailAddress) {
-  return urlForList() + md5(emailAddress);
+  return urlForList() + md5(emailAddress.toLowerCase());
 }
 
 function updateSubscription(emailAddress) {
